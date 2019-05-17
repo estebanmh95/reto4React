@@ -2,25 +2,35 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+
+//Componentes funcionales
+//Componentes sin estado
+//Componente tipo funcion
+//
+
+class App extends React.Component{
+  state = {
+    valor: 1,
+    error: true,
+    input: '',
+  }
+  handler = (event) => {
+    this.setState({input: event.target.value})
+  }
+  render(){
+    return(
+      <div>
+        <h1>Repetidor</h1>
+        <div>
+          <input name= "name" type="text" onChange={this.handler}/>
+          <div><p className= "repeater">{this.state.input}</p></div>
+        </div>
+      </div>
+    )
+  }
 }
+
+
 
 export default App;
